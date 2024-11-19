@@ -42,7 +42,7 @@ class reviewController extends Controller
         if($validator->fails()){
             return response()->json(['error'=>$validator->errors()],400);
         }
-     
+
         $user_id=auth()->user()->id;
         $review=review::where('user_id',$user_id)->find($id);
         if(!$review){
@@ -56,6 +56,10 @@ class reviewController extends Controller
         $review->save();
         return response()->json(['message' => 'Review updated successfully','new review'=>$review], 200);
         }
+    }
+    public function showallReviews($id){
+        $reviews=review::where('job_id',$id)->with('usser','joob')->get();
+        return response()->json(['reviews'=>$reviews],200);
     }
 
 }

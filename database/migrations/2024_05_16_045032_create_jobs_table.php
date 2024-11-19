@@ -20,7 +20,7 @@ return new class extends Migration
             $table->longText('description');
             $table->date('PostedAt');
             $table->longText('category');
-            $table->string('employmentType')->default('');
+            $table->longText('employmentType');
             $table->integer('years_experience');
             $table->integer('required_age');
             $table->string('gender');

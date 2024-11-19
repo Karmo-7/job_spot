@@ -11,10 +11,10 @@ class review extends Model
     protected $fillable=['job_id','user_id','rate','comment'];
 
     public function usser(){
-        return $this->belongsTo(User::class)->withTimestamps();
+        return $this->belongsTo(User::class);
     }
     public function joob(){
-        return $this->belongsTo(job::class)->withTimestamps();
+        return $this->belongsTo(job::class);
     }
 
 }

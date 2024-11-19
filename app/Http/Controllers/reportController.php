@@ -62,6 +62,7 @@ class reportController extends Controller
     }
     public function index(){
         $reports =report::all();
+        $reports->load('reportjob', 'reportuser');
         return response()->json(['reports:'=>$reports],200);
     }
 }

@@ -45,6 +45,7 @@ Route::apiResource('/chat',ChatController::class)->only(['index','store','show']
 // Route::apiResource('/chat_message',ChatMessageController::class)->only(['index','store']);
 Route::get('/chat_message',[ChatMessageController::class, 'index']);
 Route::post('/chat_messagee',[ChatMessageController::class, 'store']);
+Route::get('/showallReview/{id}',[reviewController::class, 'showallReviews']);
 
 
 
@@ -79,6 +80,7 @@ Route::post('apply/create',[applyController::class, 'apply']);
 
 Route::get('apply/{id}/show/',[applyController::class, 'show']);
 
+Route::get('showmyasks/{id}', [applyController::class, 'showmyask']);
 
 
 });
@@ -89,7 +91,7 @@ Route::delete('job/delete/{id}',[jobcontroller::class, 'destroy']);
 Route::post('job/update/{id}',[jobcontroller::class, 'update']);
 Route::get('showmyjob',[jobcontroller::class, 'show_my_job']);
 Route::post('showMyRequest',[applyController::class, 'showMyRequest']);
-
+Route::get('/download-cv/{id}', [applyController::class, 'downloadCV'])->name('download.cv');
 
 //
 
@@ -120,6 +122,9 @@ Route::get('report/index',[reportController::class, 'index']);
 
 Route::get('apply/index',[applyController::class, 'index']);
 Route::get('apply/downloadcv/{id}', [applyController::class, 'downloadCV']);
+
+
+
 
 
 

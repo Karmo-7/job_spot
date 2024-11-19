@@ -61,7 +61,6 @@ class jobcontroller extends Controller
     $jobData = $request->all();
     $jobData['user_id'] = auth()->id();
     $job = Job::create($jobData);
-
     return response()->json([
         'status' => 'success',
         'message' => 'Job created successfully',
